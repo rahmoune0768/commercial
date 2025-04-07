@@ -1,113 +1,131 @@
-import React from "react";
-import { FiMenu } from "react-icons/fi";
-import { TbBell } from "react-icons/tb";
+import React, { useContext } from "react";
+
+import { TbMenu2, TbMoon, TbSun, TbSearch, TbBell } from "react-icons/tb";
 import Profile from "./User/Profile";
 import Notifications from "./User/Notifications";
-import NavbarItem from "./NavbarItem";
+import { ThemeContext } from "../../Contexts/Theme";
 export default function Navbar({ user }) {
+    const { darkMode, toggleDarkMode, sidebarOpen, toggleSidebar } =
+        useContext(ThemeContext);
     return (
-        <nav className="navbar navbar-expand-lg border-bottom">
+        <nav className="navbar navbar-expand top-navbar">
             <div className="container-fluid">
-                <div className="d-flex align-items-center">
-                    <button className="sidebar-toggle btn ">
-                        <FiMenu size={24} />
-                    </button>
-                </div>
-                <div className="d-flex align-items-center gap-3">
-                    {/* Dark Mode Toggle */}
-                    <button className="btn" id="darkModeToggle">
-                        <i data-feather="sun" id="lightIcon" />
-                        <i
-                            data-feather="moon"
-                            id="darkIcon"
-                            className="d-none"
-                        />
-                    </button>
-                    {/* Search */}
-                    <div className="position-relative d-none d-md-block">
+                {/* Sidebar Toggle */}
+                <button
+                    className="btn btn-link"
+                    id="sidebarToggle"
+                    onClick={toggleSidebar}
+                >
+                    <TbMenu2 />
+                </button>
+                {/* Search Bar */}
+                <div className="d-flex search-container mx-3">
+                    <div className="input-group">
+                        <span className="input-group-text bg-transparent border-end-0">
+                            <TbSearch />
+                        </span>
                         <input
-                            type="text"
-                            className="form-control"
+                            type="search"
+                            className="form-control border-start-0"
                             placeholder="Search..."
-                        />
-                        <i
-                            data-feather="search"
-                            className="position-absolute top-50 end-0 translate-middle-y me-2"
+                            aria-label="Search"
                         />
                     </div>
-                    <NavbarItem
-                        title={<TbBell size={24} />}
-                        header="Notifications"
-                        showCaret={false}
-                        align={"end"}
-                    />
-                    <NavbarItem
-                        icon={user.name}
-                        header="Profile Utilisateur"
-                        showCaret={true}
-                        align={"end"}
-                    />
+                </div>
+                <div className="d-flex ms-auto align-items-center">
+                    {/* Dark Mode Toggle */}
+                    <button
+                        className="dark-mode-toggle me-3"
+                        id="darkModeToggle"
+                        onClick={toggleDarkMode}
+                    >
+                        <TbMoon />
+                    </button>
                     {/* Notifications */}
-                    <div className="dropdown">
-                        <button
-                            className="btn position-relative"
+                    <div className="dropdown me-3">
+                        <a
+                            className="dropdown-toggle text-dark"
+                            href="#"
+                            role="button"
+                            id="notificationsDropdown"
                             data-bs-toggle="dropdown"
+                            aria-expanded="false"
                         >
-                            <i data-feather="bell" />
+                            <TbBell />
+
                             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                 3
+                                <span className="visually-hidden">
+                                    unread notifications
+                                </span>
                             </span>
-                        </button>
-                        <ul className="dropdown-menu dropdown-menu-end">
+                        </a>
+                        <ul
+                            className="dropdown-menu dropdown-menu-end"
+                            aria-labelledby="notificationsDropdown"
+                        >
+                            <li>
+                                <h6 className="dropdown-header">
+                                    Notifications
+                                </h6>
+                            </li>
                             <li>
                                 <a className="dropdown-item" href="#">
-                                    <i
-                                        data-feather="file-text"
-                                        className="me-2"
-                                    />
-                                    New Quote #QT-123
+                                    New message
                                 </a>
                             </li>
                             <li>
                                 <a className="dropdown-item" href="#">
-                                    <i
-                                        data-feather="dollar-sign"
-                                        className="me-2"
-                                    />
-                                    Payment Received #IN-456
+                                    Task assigned
                                 </a>
                             </li>
                             <li>
                                 <a className="dropdown-item" href="#">
-                                    <i data-feather="check" className="me-2" />
-                                    Quote Accepted #QT-789
+                                    Deal updated
+                                </a>
+                            </li>
+                            <li>
+                                <hr className="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a className="dropdown-item" href="#">
+                                    View all
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <Notifications />
-                    {/* Profile */}
-                    <Profile user={user} />
+                    {/* User Profile */}
                     <div className="dropdown">
-                        <button
-                            className="btn d-flex align-items-center gap-2"
+                        <a
+                            className="dropdown-toggle d-flex align-items-center text-dark text-decoration-none"
+                            href="#"
+                            role="button"
+                            id="userDropdown"
                             data-bs-toggle="dropdown"
+                            aria-expanded="false"
                         >
-                            <span className="d-none d-md-block">John Doe</span>
-                        </button>
-                        <ul className="dropdown-menu dropdown-menu-end">
+                            <img
+                                src="https://placehold.co/40x40"
+                                alt="User"
+                                className="rounded-circle me-2"
+                                width={32}
+                                height={32}
+                            />
+                            <span className="d-none d-md-inline">John Doe</span>
+                        </a>
+                        <ul
+                            className="dropdown-menu dropdown-menu-end"
+                            aria-labelledby="userDropdown"
+                        >
                             <li>
                                 <a className="dropdown-item" href="#">
-                                    <i data-feather="user" className="me-2" />
+                                    <i className="ti ti-user me-2" />
                                     Profile
                                 </a>
                             </li>
                             <li>
                                 <a className="dropdown-item" href="#">
-                                    <i
-                                        data-feather="settings"
-                                        className="me-2"
-                                    />
+                                    <i className="ti ti-settings me-2" />
                                     Settings
                                 </a>
                             </li>
@@ -116,10 +134,7 @@ export default function Navbar({ user }) {
                             </li>
                             <li>
                                 <a className="dropdown-item" href="#">
-                                    <i
-                                        data-feather="log-out"
-                                        className="me-2"
-                                    />
+                                    <i className="ti ti-logout me-2" />
                                     Logout
                                 </a>
                             </li>

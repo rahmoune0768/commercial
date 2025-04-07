@@ -1,21 +1,31 @@
 import React from "react";
+import { Link } from "@inertiajs/react";
 import MenuItem from "./Menu/MenuItem";
+import NavItem from "./Menu/NavItem";
 import items from "./Menu/Items";
-import { TbBleachNoChlorine } from "react-icons/tb";
+import { TbApps } from "react-icons/tb";
 
 export default function Sidebar() {
     return (
-        <div className="sidebar" id="sidebar">
-            <div className="logo-details d-flex align-items-center justify-content-center">
-                <TbBleachNoChlorine size={30} className="m-2 text-primary" />
-
-                <span className="logo_name fw-bold"> Prospecto CRM</span>
+        <aside className="sidebar" id="sidebar">
+            <div className="sidebar-header">
+                <Link
+                    href="#"
+                    className="d-flex align-items-center text-decoration-none"
+                >
+                    <TbApps className="fs-4" />
+                    <span className="logo-text fs-4 ms-2">CRM Lite</span>
+                </Link>
             </div>
-            <ul className="nav-links">
-                {items.map((item, index) => (
-                    <MenuItem key={index} item={item} />
-                ))}
-            </ul>
-        </div>
+            <div className="sidebar-menu-container">
+                <div className="sidebar-menu">
+                    <ul className="nav flex-column">
+                        {items.map((item, index) => (
+                            <NavItem key={index} item={item} />
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </aside>
     );
 }
