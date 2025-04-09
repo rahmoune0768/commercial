@@ -1,5 +1,6 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
+import { Link } from "@inertiajs/react";
 function Profile({ user }) {
     return (
         <Dropdown>
@@ -22,7 +23,11 @@ function Profile({ user }) {
                 <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                 <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                 <Dropdown.Divider />
-                <Dropdown.Item href="#/action-3">Déconnexion</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">
+                    <Link method="post" href={route("logout")}>
+                        Déconnexion
+                    </Link>
+                </Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
     );
