@@ -94,7 +94,7 @@ export default function Login({ status, canResetPassword }) {
                                 </div>
                                 <div className="d-grid mt-4">
                                     <button
-                                        type="button"
+                                        type="submit"
                                         className="btn btn-primary"
                                         disabled={processing}
                                     >
@@ -108,7 +108,7 @@ export default function Login({ status, canResetPassword }) {
                         {/* <div class=""> */}
                         <div className="col my-1">
                             <p className="m-0">
-                                Copyright © <a href="#">Codedthemes</a>
+                                Copyright © <a href="#">LiteFlow</a>
                             </p>
                         </div>
                         <div className="col-auto my-1">
