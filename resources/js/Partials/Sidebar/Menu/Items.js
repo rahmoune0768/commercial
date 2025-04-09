@@ -7,14 +7,6 @@ const menuItems = [
                 title: "Tableau de bord",
                 icon: "home",
                 path: "/dashboard",
-                subs: [
-                    { id: 2, title: "Vue d’ensemble", path: "/dashboard" },
-                    {
-                        id: 3,
-                        title: "Fil d’activité",
-                        path: "/dashboard/activity",
-                    },
-                ],
             },
             {
                 id: 4,
