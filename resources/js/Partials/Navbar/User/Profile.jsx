@@ -1,4 +1,5 @@
 import React from "react";
+import { TbPower } from "react-icons/tb";
 import { Dropdown } from "react-bootstrap";
 import { Link } from "@inertiajs/react";
 function Profile({ user }) {
@@ -25,6 +26,7 @@ function Profile({ user }) {
                 <Dropdown.Divider />
                 <Dropdown.Item href="#/action-3">
                     <Link method="post" href={route("logout")}>
+                        <TbPower />
                         Déconnexion
                     </Link>
                 </Dropdown.Item>
