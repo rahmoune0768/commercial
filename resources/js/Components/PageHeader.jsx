@@ -11,7 +11,7 @@ export default function PageHeader({ page, parent }) {
                         </div>
                         <ul className="breadcrumb">
                             <li className="breadcrumb-item">
-                                <Link href="/dashboard">Accueil</Link>
+                                <Link href="/">Accueil</Link>
                             </li>
                             {parent && (
                                 <li className="breadcrumb-item">
