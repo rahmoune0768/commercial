@@ -10,7 +10,7 @@ export default function AppLayout({ user, header, children }) {
             {/* Main Content */}
             <div className="main-content">
                 {/* Top Navbar */}
-                <Navbar />
+                <Navbar user={user} />
                 {/* Page Content */}
                 <div className="container-fluid p-4">{children}</div>
             </div>

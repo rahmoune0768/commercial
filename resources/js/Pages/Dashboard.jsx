@@ -1,8 +1,7 @@
 import { TbEye, TbEdit } from "react-icons/tb";
-
 import AppLayout from "@/Layouts/AppLayout";
 import { Head } from "@inertiajs/react";
-
+import PageHeader from "@/Components/PageHeader";
 export default function Dashboard({ auth }) {
     return (
         <AppLayout
@@ -14,6 +13,7 @@ export default function Dashboard({ auth }) {
             }
         >
             <Head title="Dashboard" />
+            <PageHeader page="Dashboard" />
             <div className="d-flex justify-content-between align-items-center mb-4">
                 <h4 className="mb-0">Dashboard Overview</h4>
                 <div>

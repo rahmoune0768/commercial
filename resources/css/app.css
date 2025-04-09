@@ -232,7 +232,42 @@ a {
     transition: all var(--transition-speed);
     min-height: calc(100vh - var(--navbar-height));
 }
+.page-header {
+    display: flex;
+    align-items: center;
+    top: 60px;
+    left: 260px;
+    right: 0;
+    z-index: 1023;
+    min-height: 55px;
+    padding: 13px 0px;
+    background: transparent;
+    border-radius: 4px;
+}
+.page-header .page-block {
+    width: 100%;
+}
+.page-header .page-header-title {
+    display: inline-block;
+}
+.page-header h5,
+.page-header .h5 {
+    margin-bottom: 0;
+    margin-right: 8px;
+    padding-right: 8px;
+    font-weight: 500;
+}
+.page-header .breadcrumb {
+    padding: 0;
+    display: inline-flex;
+    margin-bottom: 0;
+    background: transparent;
+    font-size: 13px;
+}
 
+.page-header .breadcrumb a {
+    color: var(--body-color);
+}
 .sidebar-collapsed ~ .main-content {
     margin-left: 0;
     width: 100%;

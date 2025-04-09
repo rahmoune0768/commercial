@@ -8,6 +8,13 @@ function Profile({ user }) {
                 href="#"
                 className="text-decoration-none text-dark d-flex align-items-center"
             >
+                <img
+                    src="https://placehold.co/40x40"
+                    alt="User"
+                    className="rounded-circle me-2"
+                    width={32}
+                    height={32}
+                />
                 {user.name}
             </Dropdown.Toggle>
 
