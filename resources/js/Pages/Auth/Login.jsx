@@ -56,6 +56,11 @@ export default function Login({ status, canResetPassword }) {
                                             setData("email", e.target.value)
                                         }
                                     />
+                                    {errors.email && (
+                                        <div className="text-danger">
+                                            {errors.email}
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="form-group mb-3">
                                     <label className="form-label">
@@ -72,6 +77,11 @@ export default function Login({ status, canResetPassword }) {
                                             setData("password", e.target.value)
                                         }
                                     />
+                                    {errors.password && (
+                                        <div className="text-danger">
+                                            {errors.password}
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="d-flex mt-1 justify-content-between">
                                     <div className="form-check">

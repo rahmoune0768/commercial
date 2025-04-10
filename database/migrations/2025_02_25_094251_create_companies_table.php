@@ -25,7 +25,6 @@ return new class extends Migration
             $table->foreignId('legal_statut_id')->constrained()->onDelete('cascade');
             $table->string('nif')->nullable()->unique();
             $table->string('rcommerce')->nullable()->unique();
-            $table->foreignId('primary_contact_id')->nullable()->constrained('contacts')->onDelete('set null');
             $table->enum('statut',['active','inactive'])->default('active');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->softDeletes();

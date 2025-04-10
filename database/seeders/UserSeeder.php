@@ -16,9 +16,9 @@ class UserSeeder extends Seeder
         // Sample user data with Algerian names and phone numbers
         $users = [
             [
-                'name' => 'Ahmed Bencherif',
-                'email' => 'ahmed.bencherif@example.com',
-                'password' => Hash::make('password123'),
+                'name' => 'Ali Rahmoune',
+                'email' => 'superalio@msn.com',
+                'password' => Hash::make('123+321'),
                 'position' => 'Administrateur',
                 'mobile' => '0550123456', // Algerian phone number format
                 'role_id' => $roles->firstWhere('name', 'Administrateur')->id, // Assign the "Administrateur" role

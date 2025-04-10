@@ -1,8 +1,20 @@
-import { TbEye, TbEdit } from "react-icons/tb";
+import {
+    TbEye,
+    TbEdit,
+    TbChecklist,
+    TbDownload,
+    TbPlus,
+    TbUsers,
+    TbHeartHandshake,
+    TbArrowNarrowUp,
+    TbTargetArrow,
+    TbCurrency,
+} from "react-icons/tb";
 import AppLayout from "@/Layouts/AppLayout";
 import { Head } from "@inertiajs/react";
 import PageHeader from "@/Components/PageHeader";
-export default function Dashboard({ auth }) {
+export default function Dashboard({ auth, settings }) {
+    console.log(settings);
     return (
         <AppLayout
             user={auth.user}
@@ -18,10 +30,12 @@ export default function Dashboard({ auth }) {
                 <h4 className="mb-0">Dashboard Overview</h4>
                 <div>
                     <button className="btn btn-sm btn-outline-secondary me-2">
-                        <i className="ti ti-download me-1" /> Export
+                        <TbDownload className="me-1" />
+                        Export
                     </button>
                     <button className="btn btn-sm btn-primary">
-                        <i className="ti ti-plus me-1" /> New Deal
+                        <TbPlus className="me-1" />
+                        New Deal
                     </button>
                 </div>
             </div>
@@ -36,11 +50,14 @@ export default function Dashboard({ auth }) {
                                 </h6>
                                 <h3 className="mb-0">1,254</h3>
                                 <small className="text-success">
-                                    <i className="ti ti-arrow-up me-1" /> 12%
+                                    <TbArrowNarrowUp className="me-1" /> 12%
                                     this month
                                 </small>
                             </div>
-                            <i className="ti ti-users card-icon text-primary" />
+                            <TbUsers
+                                className="card-icon text-primary"
+                                size={40}
+                            />
                         </div>
                     </div>
                 </div>
@@ -53,11 +70,14 @@ export default function Dashboard({ auth }) {
                                 </h6>
                                 <h3 className="mb-0">48</h3>
                                 <small className="text-success">
-                                    <i className="ti ti-arrow-up me-1" /> 5 this
+                                    <TbArrowNarrowUp className="me-1" /> 5 this
                                     week
                                 </small>
                             </div>
-                            <i className="ti ti-handshake card-icon text-success" />
+                            <TbHeartHandshake
+                                className="card-icon text-success"
+                                size={40}
+                            />
                         </div>
                     </div>
                 </div>
@@ -68,11 +88,14 @@ export default function Dashboard({ auth }) {
                                 <h6 className="text-muted mb-1">Revenue</h6>
                                 <h3 className="mb-0">$32,450</h3>
                                 <small className="text-warning">
-                                    <i className="ti ti-target me-1" /> 85% of
+                                    <TbTargetArrow className="me-1" /> 85% of
                                     target
                                 </small>
                             </div>
-                            <i className="ti ti-currency-dollar card-icon text-warning" />
+                            <TbCurrency
+                                className=" card-icon text-warning "
+                                size={40}
+                            />
                         </div>
                     </div>
                 </div>
@@ -89,7 +112,7 @@ export default function Dashboard({ auth }) {
                                     overdue
                                 </small>
                             </div>
-                            <i className="ti ti-checklist card-icon text-info" />
+                            <TbChecklist className="card-icon text-info" />
                         </div>
                     </div>
                 </div>

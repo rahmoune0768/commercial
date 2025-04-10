@@ -45,7 +45,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('reminders', ReminderController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('quotes', QuoteController::class);
-    Route::resource('settings', SettingController::class);
+   
     Route::resource('industries', IndustryController::class);
     Route::resource('invoices', InvoiceController::class);
     Route::resource('quote-items', QuoteItemController::class);
@@ -54,6 +54,28 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+ //settings
+    Route::prefix('settings')->name('settings.')->group(function () {
+
+    // Show the settings page (index)
+    Route::get('/', [SettingController::class, 'index'])->name('index');
+
+    // Show form to create a new setting (if applicable)
+    Route::get('create', [SettingController::class, 'create'])->name('create');
+
+    // Store a new setting
+    Route::post('store', [SettingController::class, 'store'])->name('store');
+
+    // Show form to edit a specific setting
+    Route::get('edit/{setting}', [SettingController::class, 'edit'])->name('edit');
+
+    // Update a specific setting
+    Route::put('update/{setting}', [SettingController::class, 'update'])->name('update');
+
+    // Delete a specific setting
+    Route::delete('delete/{setting}', [SettingController::class, 'destroy'])->name('destroy');
+});
+
 });
 
 require __DIR__.'/auth.php';

@@ -93,6 +93,6 @@ class ProductCategorySeeder extends Seeder
         ];
 
         // Insert the categories into the database
-        DB::table('product_categories')->insert($categories);
+        DB::table('categories')->insert($categories);
     }
 }

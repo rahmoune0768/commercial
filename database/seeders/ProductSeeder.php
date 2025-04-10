@@ -13,7 +13,7 @@ class ProductSeeder extends Seeder
         $faker = Faker::create('fr_FR'); // French locale for names, descriptions, etc.
         
         // Retrieve all category IDs
-        $categories = DB::table('product_categories')->pluck('id');
+        $categories = DB::table('categories')->pluck('id');
 
         $products = [];
 

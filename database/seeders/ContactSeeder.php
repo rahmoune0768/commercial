@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 
-class ClientSeeder extends Seeder
+class ContactSeeder extends Seeder
 {
     public function run()
     {
@@ -29,7 +29,7 @@ class ClientSeeder extends Seeder
         }
 
         // Insert 300 clients into the database
-        DB::table('clients')->insert($clients);
+        DB::table('contacts')->insert($clients);
     }
 
     /**
